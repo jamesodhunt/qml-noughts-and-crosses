@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=noughts-and-crosses
+Comment=My project description
+Exec=/usr/bin/qmlscene $@ /usr/share/noughts-and-crosses/noughts-and-crosses.qml
+Icon=qmlscene
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
