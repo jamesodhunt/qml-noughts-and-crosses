@@ -12,17 +12,18 @@ MainView {
 
         id: page
 
+        Game {
+            id: game
+            boardSize: 3
+        }
 
-        Column {
-            spacing: units.gu(1)
+        tools: ToolbarActions {
+            id: toolbar
+            active: true
 
-            anchors {
-                margins: units.gu(2)
-                fill: parent
-            }
-
-            Game {
-                boardSize: 3
+            Action {
+                text: "New Game"
+                onTriggered: game.newGame()
             }
         }
     }

@@ -8,8 +8,6 @@ import QtQuick 2.0
 
 Rectangle {
     id: cell
-    width: 100
-    height: 100
     state: gameGrid.defaultText
 
     property alias textColor: cellText.color
@@ -20,17 +18,18 @@ Rectangle {
         color: "silver"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        font.pointSize: 48
-    }
-
-    function reset(ch) {
-        cellText.text = cell.defaultText
+        font.pointSize: 90
     }
 
     states: [
         State {
             name: cell.parent.defaultText
             PropertyChanges { target: gameGrid; player: "" }
+
+            // (re-)set to default content+styling
+            PropertyChanges { target:cellText; text: gameGrid.defaultText }
+            PropertyChanges { target:cellText; color: "silver" }
+            PropertyChanges { target:cell; color: "white" }
         },
         State {
             name: "O"
@@ -46,6 +45,9 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
+            if (gameGrid.finished)
+                return;
+
             cell.state = (gameGrid.player == "O" ? "X" : "O");
             gameGrid.numberTurns += 1
             gameGrid.checkForWin();

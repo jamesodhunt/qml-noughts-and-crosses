@@ -1,3 +1,16 @@
+2013-05-24  James Hunt  <james.hunt@ubuntu.com>
+
+	* Cell.qml:
+	  - Increase pointsize.
+	  - Remove width+height to allow parent to size it.
+	  - Don't change cells if game is over.
+	* Game.qml:
+	  - Disallow further moves once game is over.
+	  - Allow cells to be square or rectangular (to use full display size).
+	* noughts-and-crosses.qml:
+	  - Removed unecessary Column.
+	  - Added "new game" menu option.
+
 2013-05-17  James Hunt  <james.hunt@ubuntu.com>
 
 	* Initial import.
